@@ -7,11 +7,19 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import qiita_article_dto.Qiita_article_dto;
+
 public class QiitaList {
 
     public static void main(String[] args) {
+        
+        // dtoを取得する
+        Qiita_article_dto qiita_article_dto = new Qiita_article_dto();
+        qiita_article_dto.setLikes_count(1);
+        System.out.println("ライクの数：" + qiita_article_dto.getLikes_count());
+        
         // 接続するエンドポイント
-        String getUrl = "https://qiita.com/api/v2/users/kamimi01";
+        String getUrl = "https://qiita.com/api/v2/items?page=1&per_page=10&query=qiita+user%3AQiita";
         try {
             URL url = new URL(getUrl);
 
